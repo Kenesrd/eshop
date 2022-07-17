@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <div th:insert="~{fragments/menu :: #nav-menu}"></div>
+
+    <h1>User Profile</h1>
+
+    <form th:action="@{/users/profile}" th:object="${user}" method="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="username" th:field="*{username}">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" th:field="*{email}">
+        </div>
+        <div>
+            <label for="password">password</label>
+            <input type="password" id="password" placeholder="password" th:field="*{password}">
+        </div>
+        <div>
+            <label for="matchingPassword">Name</label>
+            <input type="password" id="matchingPassword" placeholder="matchingPassword" th:field="*{matchingPassword}">
+        </div>
+
+        <div><button type="submit">Сохранить / Обновить </button> </div>
+    </form>
+
+</body>
+</html>

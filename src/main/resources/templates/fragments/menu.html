@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="nav-menu" align="center">
+    <ul style="display: flex; justify-content: end; list-style: none;">
+        <li style="margin-right: 25px;"><a th:href="@{/}">Home</a></li>
+        <li style="margin-right: 25px;"><a th:href="@{/products}">Products</a></li>
+<!--        <li style="margin-right: 25px;"><a th:href="@{/login}">Login</a></li>-->
+        <li sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" style="margin-right: 25px;"><a th:href="@{/users}">Users</a></li>
+        <li sec:authorize="isAuthenticated" style="margin-right: 25px;"><a th:href="@{/bucket}">Bucket</a></li>
+        <div sec:authorize="isAuthenticated" style="display:flex; margin-right: 25px;">
+            <div>
+                Hello, <a th:href="@{/users/profile}"> <span sec:authentication = "principal.username">Bill</span></a>
+            </div>
+            <div style="margin-left: 25px;">
+                <a th:href="@{/logout}">Logout</a>
+            </div>
+        </div>
+
+        <div sec:authorize="!isAuthenticated">
+            <div>
+                Hello, Unknown. Please <a th:href="@{/login}">Login</a>
+            </div>
+        </div>
+    </ul>
+
+</div>
+
+</body>
+</html>
