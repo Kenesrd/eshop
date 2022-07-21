@@ -5,6 +5,7 @@ import com.example.eshop.service.BucketService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
 
@@ -26,5 +27,14 @@ public class BucketController {
             model.addAttribute("bucket", bucketDto);
         }
         return "bucket";
+    }
+
+    @PostMapping("/bucket")
+    public String commitBucket(Principal principal){
+        if (principal != null){
+            bucketService.commitBucketToOrder(principal.getName());
+        }
+        return "redirect:/bucket";
+
     }
 }
