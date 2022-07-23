@@ -10,14 +10,14 @@ import org.springframework.integration.channel.DirectChannel;
 @ImportResource("classpath:/integration/http-orders-integration.xml")
 public class OrderIntegrationConfig {
 
-    private DirectChannel ordersChannel;
-
-    public OrderIntegrationConfig(@Qualifier("ordersChannel") DirectChannel ordersChannel) {
-        this.ordersChannel = ordersChannel;
-    }
-
-    public DirectChannel getOrdersChannel() {
-        return ordersChannel;
-    }
+//    private DirectChannel ordersChannel;
+//
+//    public OrderIntegrationConfig(@Qualifier("ordersChannel") DirectChannel ordersChannel) {
+//        this.ordersChannel = ordersChannel;
+//    }
+//
+//    public DirectChannel getOrdersChannel() {
+//        return ordersChannel;
+//    }
 
 }

@@ -28,25 +28,25 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public void saveOrder(Order order) {
         Order savedOrder = orderRepository.save(order);
-        sendIntegrationNotify(savedOrder);
+//        sendIntegrationNotify(savedOrder);
     }
 
-    private void sendIntegrationNotify(Order order) {
-        OrderIntegrationDto dto = new OrderIntegrationDto();
-        dto.setUsername(order.getUser().getName());
-        dto.setAddress(order.getAddress());
-        dto.setId(order.getId());
-        List<OrderIntegrationDto.OrderDetailsDto> details = order.getDetails().stream()
-                .map(OrderIntegrationDto.OrderDetailsDto::new)
-                .collect(Collectors.toList());
-        dto.setDetails(details);
-
-        Message<OrderIntegrationDto> message = MessageBuilder.withPayload(dto)
-                .setHeader("Content-type", "application/json")
-                .build();
-
-        integrationConfig.getOrdersChannel().send(message);
-    }
+//    private void sendIntegrationNotify(Order order) {
+//        OrderIntegrationDto dto = new OrderIntegrationDto();
+//        dto.setUsername(order.getUser().getName());
+//        dto.setAddress(order.getAddress());
+//        dto.setId(order.getId());
+//        List<OrderIntegrationDto.OrderDetailsDto> details = order.getDetails().stream()
+//                .map(OrderIntegrationDto.OrderDetailsDto::new)
+//                .collect(Collectors.toList());
+//        dto.setDetails(details);
+//
+//        Message<OrderIntegrationDto> message = MessageBuilder.withPayload(dto)
+//                .setHeader("Content-type", "application/json")
+//                .build();
+//
+//        integrationConfig.getOrdersChannel().send(message);
+//    }
     @Override
     public Order getOrder(Long id) {
         return orderRepository.findById(id).orElse(null);
