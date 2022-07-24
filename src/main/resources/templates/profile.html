@@ -8,7 +8,7 @@
     <div th:insert="~{fragments/menu :: #nav-menu}"></div>
 
     <h1>User Profile</h1>
-
+    <p th:if="${!user.activated}">Your user is not activated!!!</p>
     <form th:action="@{/users/profile}" th:object="${user}" method="post">
         <div>
             <label for="name">Name</label>

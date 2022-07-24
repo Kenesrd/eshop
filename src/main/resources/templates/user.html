@@ -9,6 +9,7 @@
 
     <form th:action="@{/users/new}" th:object="${user}" method="post">
         <table border="1">
+
             <tr>
                 <td>Name</td>
                 <td><input type="text" th:field="*{username}"></td>
@@ -18,15 +19,16 @@
                 <td><input type="password" th:field="*{password}"></td>
             </tr>
             <tr>
-                <td>Matching Password</td>
+                <td>Matching password</td>
                 <td><input type="password" th:field="*{matchingPassword}"></td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td><input type="email" th:field="*{email}"></td>
             </tr>
+
         </table>
-        <button type="submit">save</button>
+        <button type="submit">Save</button>
     </form>
 </body>
 </html>
