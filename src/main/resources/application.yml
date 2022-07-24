@@ -11,7 +11,6 @@ spring:
     baseline-on-migrate: true
   main:
     allow-circular-references: true
-
 server:
   hostname: localhost
   port: ${PORT:8080}
