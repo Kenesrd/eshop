@@ -4,9 +4,9 @@ spring:
       ddl-auto: validate
     show-sql: true
   datasource:
-    url: jdbc:${DATABASE_PATH}
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/home
+    username: postgres
+    password: 1309
   flyway:
     baseline-on-migrate: true
   main:
@@ -20,5 +20,5 @@ mail:
     host: smtp.gmail.com
     port: 587
     username: kenesvip@gmail.com
-    password: ${hidden.email.password}
+    password: Kojikov89$$
 
